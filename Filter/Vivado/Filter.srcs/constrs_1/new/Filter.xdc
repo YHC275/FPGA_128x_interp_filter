@@ -1,0 +1,35 @@
+set_property CFGBVS VCCO [current_design]
+set_property CONFIG_VOLTAGE 3.3 [current_design]
+
+set_property SLEW SLOW [get_ports DA_CLK]
+set_property SLEW SLOW [get_ports {DA_D[*]}]
+set_property PACKAGE_PIN G16 [get_ports DA_CLK]
+set_property PACKAGE_PIN H19 [get_ports {DA_D[0]}]
+set_property PACKAGE_PIN E19 [get_ports {DA_D[1]}]
+set_property PACKAGE_PIN H18 [get_ports {DA_D[2]}]
+set_property PACKAGE_PIN G18 [get_ports {DA_D[3]}]
+set_property PACKAGE_PIN F18 [get_ports {DA_D[4]}]
+set_property PACKAGE_PIN G17 [get_ports {DA_D[5]}]
+set_property PACKAGE_PIN E17 [get_ports {DA_D[6]}]
+set_property PACKAGE_PIN C17 [get_ports {DA_D[7]}]
+set_property PACKAGE_PIN Y18 [get_ports sys_clk]
+set_property PACKAGE_PIN U22 [get_ports sys_rst_n]
+
+# The board oscillator is the reset-independent 20 MHz source for both the
+# audio Clock Wizard input and the dedicated ILA Debug Hub clock path.
+create_clock -name sys_clk -period 50.000 -waveform {0.000 25.000} [get_ports sys_clk]
+
+set_property PACKAGE_PIN J22 [get_ports clk_locked]
+set_property IOSTANDARD LVCMOS33 [get_ports {DA_D[7]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {DA_D[6]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {DA_D[5]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {DA_D[4]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {DA_D[3]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {DA_D[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {DA_D[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {DA_D[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports clk_locked]
+set_property IOSTANDARD LVCMOS33 [get_ports DA_CLK]
+set_property IOSTANDARD LVCMOS33 [get_ports sys_clk]
+set_property IOSTANDARD LVCMOS33 [get_ports sys_rst_n]
+
